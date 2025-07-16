@@ -1,0 +1,17 @@
+$orange: #F23005;
+
+.bg-stripe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50vw;        // ширина вашої смуги
+  height: 100vh;
+  background-color: $orange;  // ваш оранжевий
+  z-index: -1;        // щоб під усім контентом
+  transition: transform 0.6s ease; // анімація тільки через CSS
+  transform: translateX(0);       // стартова позиція
+}
+
+.route-home    .bg-stripe { transform: translateX(0);    }
+.route-create  .bg-stripe { transform: translateX(50%); }
+.route-other   .bg-stripe { transform: translateX(100%); }
