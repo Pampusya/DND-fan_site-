@@ -27,30 +27,7 @@ export const links: Route.LinksFunction = () => [
   }
 ];
 
-// export function Layout({ children }: { children: React.ReactNode }) {
-//   return (
-//     <html lang="en">
-//       <head>
-//         <meta charSet="utf-8" />
-//         <meta name="viewport" content="width=device-width, initial-scale=1" />
-//         <Meta />
-//         <Links />
-//       </head>
-//       <body>
-//         <Header key="persistent-header"/>
-//         <main>
-//           {children}
-//         </main>
-//         <Footer />
-//         <ScrollRestoration />
-//         <Scripts />
-
-//       </body>
-//     </html>
-//   );
-// }
-
-export default function App() {
+export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -62,7 +39,7 @@ export default function App() {
       <body>
         <Header key="persistent-header"/>
         <main>
-          <Outlet/>
+          {children}
         </main>
         <Footer />
         <ScrollRestoration />
@@ -71,6 +48,12 @@ export default function App() {
       </body>
     </html>
   );
+}
+
+export default function App() {
+  return (
+          <Outlet/>
+  )
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
